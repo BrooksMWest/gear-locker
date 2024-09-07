@@ -22,7 +22,7 @@ function GearCard({ gearObj, onUpdate }) {
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
-        <Link href={`/book/edit/${gearObj.firebaseKey}`} passHref>
+        <Link href={`/gear/edit/${gearObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisGear} className="m-2">
@@ -36,7 +36,7 @@ function GearCard({ gearObj, onUpdate }) {
 GearCard.propTypes = {
   gearObj: PropTypes.shape({
     name: PropTypes.string,
-    aquiredOn: PropTypes.instanceOf(Date),
+    acquiredOn: PropTypes.instanceOf(Date),
     acquiredFrom: PropTypes.string,
     condition: PropTypes.string,
     serialNumber: PropTypes.number,
