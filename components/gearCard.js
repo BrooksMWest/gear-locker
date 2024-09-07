@@ -1,0 +1,43 @@
+// function gearCard({ gearObj, onUpdate }) {
+// FOR DELETE, WE NEED TO REMOVE THE GEAR AND HAVE THE VIEW RERENDER,
+// SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE Gear
+//   const deleteThisGear = () => {
+//     if (window.confirm(`Delete ${gearObj.name}?`)) {
+//       deleteGear(gearObj.firebaseKey).then(() => onUpdate());
+//     }
+//   };
+
+//   return (
+//     <Card style={{ width: '18rem', margin: '10px' }}>
+//       <Card.Img variant="top" src={gearObj.image} alt={gearObj.name} style={{ height: '400px' }} />
+//       <Card.Body>
+//         <Card.Title>{gearObj.name}</Card.Title>
+//         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
+//         <Link href={`/gear/${gearObj.firebaseKey}`} passHref>
+//           <Button variant="primary" className="m-2">VIEW</Button>
+//         </Link>
+//         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
+//         <Link href={`/book/edit/${bookObj.firebaseKey}`} passHref>
+//           <Button variant="info">EDIT</Button>
+//         </Link>
+//         <Button variant="danger" onClick={deleteThisBook} className="m-2">
+//           DELETE
+//         </Button>
+//       </Card.Body>
+//     </Card>
+//   );
+// }
+// //EVERYTHING IN THE GEAR CARD NEEDS TO BE CHANGED TO ACCOMODATE THE THE STRUCTURE OF THE GEAR DATABASE!
+// GearCard.propTypes = {
+//   gearObj: PropTypes.shape({
+//     gearName: PropTypes.string,
+//     aquiredDate: PropTypes.instanceOf(Date),
+//     gotFrom: PropTypes.string,
+//     condition: PropTypes.string,
+//     serialNo: PropTypes.number,
+//     description: PropTypes.string
+//   }).isRequired,
+//   onUpdate: PropTypes.func.isRequired,
+// };
+
+// export default BookCard;

@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
+import WelcomeButtons from '../components/welcomePageButtons';
 
 function Home() {
   const { user } = useAuth();
@@ -15,6 +16,9 @@ function Home() {
         margin: '0 auto',
       }}
     >
+      <div>
+        <WelcomeButtons />
+      </div>
       <h1>Hello {user.displayName}! </h1>
       <p>Click the button below to logout!</p>
       <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
