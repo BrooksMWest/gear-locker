@@ -87,7 +87,7 @@ function GearForm({ obj }) {
           value={formInput.type_id}
           required
         >
-          <option value="">Select an Author</option>
+          <option value="">What kind of gear is it?</option>
           {
             types.map((type) => (
               <option
@@ -129,32 +129,43 @@ function GearForm({ obj }) {
       <FloatingLabel controlId="floatingInput3" label="acquiredFrom" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Enter price"
-          name="price"
-          value={formInput.price}
+          placeholder="where'd you get this thing?"
+          name="acquiredFrom"
+          value={formInput.acquiredFrom}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
       {/* CONDITION INPUT  */}
 
-      <FloatingLabel controlId="floatingInput3" label="Book Price" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="condition" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Enter price"
-          name="price"
-          value={formInput.price}
+          placeholder="condition"
+          name="condition"
+          value={formInput.condition}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
       {/* SERIAL # INPUT  */}
-      <FloatingLabel controlId="floatingInput3" label="Book Price" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="serial number" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Enter price"
-          name="price"
-          value={formInput.price}
+          placeholder="Enter serial number if you've got it"
+          name="serialNumber"
+          value={formInput.serialNumber}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+      {/* ADD AN IMAGE  */}
+      <FloatingLabel controlId="floatingInput2" label="gear image link" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an image url"
+          name="image"
+          value={formInput.image}
           onChange={handleChange}
           required
         />
