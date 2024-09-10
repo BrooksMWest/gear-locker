@@ -1,15 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
-import { deleteGear } from '../api/gearData';
+import { deleteGearItem } from '../api/gearData';
 
 function GearCard({ gearObj, onUpdate }) {
 // FOR DELETE, WE NEED TO REMOVE THE GEAR AND HAVE THE VIEW RERENDER,
 // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE Gear
   const deleteThisGear = () => {
     if (window.confirm(`Delete ${gearObj.name}?`)) {
-      deleteGear(gearObj.firebaseKey).then(() => onUpdate());
+      deleteGearItem(gearObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -33,7 +33,7 @@ function GearCard({ gearObj, onUpdate }) {
     </Card>
   );
 }
-// EVERYTHING IN THE GEAR CARD NEEDS TO BE CHANGED TO ACCOMODATE THE THE STRUCTURE OF THE GEAR DATABASE!
+
 GearCard.propTypes = {
   gearObj: PropTypes.shape({
     name: PropTypes.string,

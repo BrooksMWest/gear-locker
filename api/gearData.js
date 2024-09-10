@@ -16,7 +16,7 @@ const getGear = (uid) => new Promise((resolve, reject) => {
 });
 
 // TODO: DELETE GEAR
-const deleteGear = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteGearItem = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -100,7 +100,7 @@ export {
   getGear,
   createGearItem,
   gearIsFavorite,
-  deleteGear,
+  deleteGearItem,
   getSingleGearItem,
   updateGear,
   getGearByType,

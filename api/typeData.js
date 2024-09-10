@@ -3,7 +3,7 @@ import { clientCredentials } from '../utils/client';
 const endpoint = clientCredentials.databaseURL;
 
 const getTypes = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/types.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/typess.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -34,13 +34,40 @@ const createType = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: GET SINGLE TYPE
+// FIXME: GET SINGLE AUTHOR
 const getSingleType = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+// FIXME: DELETE TYPES
+const deleteSingleType = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/types/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+// FIXME: UPDATE TYPE
+const updateType = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/types/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
   })
     .then((response) => response.json())
     .then((data) => resolve(data))
@@ -60,10 +87,8 @@ const getTypeGear = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
-
-// GET FAVORITE PIECES OF GEAR
-const favoriteGear = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"`, {
+const favoriteTypes = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/types.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -81,6 +106,8 @@ export {
   getTypes,
   createType,
   getSingleType,
-  favoriteGear,
+  deleteSingleType,
+  updateType,
+  favoriteTypes,
   getTypeGear,
 };
