@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -14,14 +15,14 @@ function GearCard({ gearObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={gearObj.image} alt={gearObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={gearObj?.image || 'defaultImageUrl'} alt={gearObj?.name || 'No name'} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{gearObj.name}</Card.Title>
         {/* DYNAMIC LINK TO VIEW THE GEAR DETAILS  */}
         <Link href={`/gear/${gearObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
+        {/* DYNAMIC LINK TO EDIT THE GEAR DETAILS  */}
         <Link href={`/gear/edit/${gearObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
@@ -36,10 +37,10 @@ function GearCard({ gearObj, onUpdate }) {
 GearCard.propTypes = {
   gearObj: PropTypes.shape({
     name: PropTypes.string,
-    acquiredOn: PropTypes.instanceOf(Date),
+    acquiredOn: PropTypes.string,
     acquiredFrom: PropTypes.string,
     condition: PropTypes.string,
-    serialNumber: PropTypes.number,
+    serialNumber: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
     firebaseKey: PropTypes.string,

@@ -1,8 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import CurrentGear from '../pages/currentGear';
-import ArchivedGear from '../pages/archivedGear';
-import addGear from '../pages/addGear';
 
 function WelcomeButtons() {
   return (
@@ -15,15 +13,21 @@ function WelcomeButtons() {
         margin: '0 auto',
       }}
     >
-      <Button type="button" size="lg" className="copy-btn" onClick={CurrentGear}>
-        Take me to my gear
-      </Button>
-      <Button type="button" size="lg" className="copy-btn" onClick={ArchivedGear}>
-        Show me my archived gear
-      </Button>
-      <Button type="button" size="lg" className="copy-btn" onClick={addGear}>
-        add gear
-      </Button>
+      <Link href="/currentGear" passHref>
+        <Button type="button" size="lg" className="copy-btn">
+          Take me to my gear
+        </Button>
+      </Link>
+      <Link href="/archivedGear" passHref>
+        <Button type="button" size="lg" className="copy-btn">
+          Show me my archived gear
+        </Button>
+      </Link>
+      <Link href="/addGear" passHref>
+        <Button type="button" size="lg" className="copy-btn">
+          add gear
+        </Button>
+      </Link>
     </div>
   );
 }
