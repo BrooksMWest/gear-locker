@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import { deleteGear } from '../api/gearData';
 
 function GearCard({ gearObj, onUpdate }) {
@@ -33,7 +33,7 @@ function GearCard({ gearObj, onUpdate }) {
     </Card>
   );
 }
-// EVERYTHING IN THE GEAR CARD NEEDS TO BE CHANGED TO ACCOMODATE THE THE STRUCTURE OF THE GEAR DATABASE!
+
 GearCard.propTypes = {
   gearObj: PropTypes.shape({
     name: PropTypes.string,
