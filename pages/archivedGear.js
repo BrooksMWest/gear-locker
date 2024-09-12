@@ -1,4 +1,5 @@
 import React from 'react';
+import SortArchivedButtons from '../components/sortArchivedGearButtons';
 
 export default function ArchivedGear() {
   return (
@@ -6,6 +7,9 @@ export default function ArchivedGear() {
       <h1>
         Archived Gear
       </h1>
+      <div>
+        <SortArchivedButtons />
+      </div>
     </div>
   );
 }

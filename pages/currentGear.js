@@ -5,7 +5,7 @@ import { useAuth } from '../utils/context/authContext';
 import GearCard from '../components/gearCard';
 
 export default function CurrentGear() {
-  // SET STATE FOR BOOKS
+  // SET STATE FOR gear
   const [gear, setGear] = useState([]);
 
   // GET USER ID USING USEAUTH HOOK
@@ -17,7 +17,7 @@ export default function CurrentGear() {
   };
   useEffect(() => {
     getAlltheGear();
-  }, []);
+  });
   return (
     <div>
       <h1>Current Gear
