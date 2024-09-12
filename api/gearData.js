@@ -3,7 +3,7 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getGear = (uid) => new Promise((resolve, reject) => {
+const getAllGear = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
@@ -97,7 +97,7 @@ const gearIsFavorite = (uid) => new Promise((resolve, reject) => {
 });
 
 export {
-  getGear,
+  getAllGear,
   createGearItem,
   gearIsFavorite,
   deleteGearItem,
