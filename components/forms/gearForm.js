@@ -195,7 +195,7 @@ GearForm.propTypes = {
     ownerId: PropTypes.string,
     name: PropTypes.string,
     maker: PropTypes.string,
-    acquiredOn: PropTypes.bool,
+    acquiredOn: PropTypes.string,
     acquiredFrom: PropTypes.string,
     condition: PropTypes.string,
     serialNumber: PropTypes.string,

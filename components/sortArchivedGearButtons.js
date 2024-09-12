@@ -4,7 +4,7 @@ import Link from 'next/link';
 import addGear from '../pages/addGear';
 import { getTypeGear } from '../api/typeData';
 
-function SortButtons() {
+function SortArchivedButtons() {
   return (
     <div>
       <div
@@ -17,16 +17,16 @@ function SortButtons() {
         }}
       >
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
-          All Current Gear
+          All Archived Gear
         </Button>
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
-          Instruments
+          Archived Instruments
         </Button>
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
-          Pro Audio and recording
+          Archived Pro Audio and Recording Gear
         </Button>
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
-          Other Gear
+          Other Archived Gear
         </Button>
       </div>
       <div>
@@ -40,4 +40,4 @@ function SortButtons() {
   );
 }
 
-export default SortButtons;
+export default SortArchivedButtons;
