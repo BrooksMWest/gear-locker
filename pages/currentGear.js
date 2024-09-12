@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SortButtons from '../components/sortGearButtons';
-import { getGear } from '../api/gearData';
+import { getAllGear } from '../api/gearData';
 import { useAuth } from '../utils/context/authContext';
 import GearCard from '../components/gearCard';
 
-export default function CurrentGear() {
+export default function AllGear() {
   // SET STATE FOR gear
   const [gear, setGear] = useState([]);
 
@@ -13,7 +13,7 @@ export default function CurrentGear() {
 
   // CREATE A FUNCTION THAT MAKES AN API CALL TO GET ALL THE GEAR
   const getAlltheGear = () => {
-    getGear(user.uid).then(setGear);
+    getAllGear(user.uid).then(setGear);
   };
   useEffect(() => {
     getAlltheGear();
