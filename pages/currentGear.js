@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import SortButtons from '../components/sortGearButtons';
 import { getAllGear } from '../api/gearData';
 import { useAuth } from '../utils/context/authContext';
 import GearCard from '../components/gearCard';
+import TypePickerDropdown from '../components/forms/typePickerDropdown';
 
 export default function AllGear() {
   // SET STATE FOR gear
@@ -10,24 +11,26 @@ export default function AllGear() {
 
   // GET USER ID USING USEAUTH HOOK
   const { user } = useAuth();
-
-  // CREATE A FUNCTION THAT MAKES AN API CALL TO GET ALL THE GEAR
-  const getAlltheGear = () => {
+  const getAllTheGear = useCallback(() => {
     getAllGear(user.uid).then(setGear);
-  };
+  }, [user.uid, setGear]);
+  // CREATE A FUNCTION THAT MAKES AN API CALL TO GET ALL THE GEAR
   useEffect(() => {
-    getAlltheGear();
-  });
+    getAllTheGear();
+  }, [getAllTheGear]);
   return (
     <div>
       <h1>Current Gear
       </h1>
       <div>
+        <TypePickerDropdown />
+      </div>
+      <div>
         <SortButtons />
       </div>
       <div>
         {gear.map((gearItem) => (
-          <GearCard key={gear.firebaseKey} gearObj={gearItem} onUpdate={getAlltheGear} />
+          <GearCard key={gear.id} gearObj={gearItem} onUpdate={getAllTheGear} />
         ))}
       </div>
     </div>
