@@ -4,7 +4,6 @@ import { clientCredentials } from '../utils/client';
 const endpoint = clientCredentials.databaseURL;
 
 const getAllGear = (uid) => new Promise((resolve, reject) => {
-  console.log('in function', uid);
   fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {

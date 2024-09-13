@@ -8,30 +8,41 @@ import TypePickerDropdown from '../components/forms/typePickerDropdown';
 export default function AllGear() {
   // SET STATE FOR gear
   const [gear, setGear] = useState([]);
+  // SETS THE STATE FOR SELECTED TYPE
+  const [selectedTypeId, setSelectedTypeId] = useState('');
 
   // GET USER ID USING USEAUTH HOOK
   const { user } = useAuth();
   const getAllTheGear = useCallback(() => {
     getAllGear(user.uid).then(setGear);
   }, [user.uid, setGear]);
+
   // CREATE A FUNCTION THAT MAKES AN API CALL TO GET ALL THE GEAR
   useEffect(() => {
     getAllTheGear();
   }, [getAllTheGear]);
+
+  const filteredGear = selectedTypeId
+    ? gear.filter((gearItem) => gearItem.typeId === selectedTypeId)
+    : gear;
   return (
     <div>
       <h1>Current Gear
       </h1>
       <div>
-        <TypePickerDropdown />
+        <TypePickerDropdown onTypeChange={setSelectedTypeId} />
       </div>
       <div>
+        <div className="gear-cards-container">
+          {filteredGear.map((gearItem) => (
+            <GearCard
+              key={gearItem.firebaseKey}
+              gearObj={gearItem}
+              onUpdate={getAllTheGear}
+            />
+          ))}
+        </div>
         <SortButtons />
-      </div>
-      <div>
-        {gear.map((gearItem) => (
-          <GearCard key={gearItem.firebaseKey} gearObj={gearItem} onUpdate={getAllTheGear} />
-        ))}
       </div>
     </div>
   );
