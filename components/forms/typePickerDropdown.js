@@ -1,8 +1,7 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
-import { getTypes, updateType } from '../../api/typeData';
+import { getTypes } from '../../api/typeData';
 import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
@@ -11,10 +10,9 @@ const initialState = {
 };
 
 // eslint-disable-next-line react/prop-types
-function TypePickerDropdown({ obj }) {
+function TypePickerDropdown({ obj, onTypeChange }) {
   const [formInput, setFormInput] = useState(initialState);
   const [types, setTypes] = useState([]);
-  const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
@@ -29,17 +27,11 @@ function TypePickerDropdown({ obj }) {
       ...prevState,
       [name]: value,
     }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (obj) {
-      updateType(formInput).then(() => router.push(`/types/${obj}`));
-    }
+    onTypeChange(value);
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <div>
         <FloatingLabel controlId="floatingSelect" label="Type">
           <Form.Select
