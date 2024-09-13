@@ -11,7 +11,7 @@ import { createGearItem, updateGear } from '../../api/gearData';
 const initialState = {
   gearId: '',
   ownerId: '',
-  gearName: '',
+  name: '',
   typeId: '',
   maker: '',
   acquiredOn: '',
@@ -19,10 +19,10 @@ const initialState = {
   condition: '',
   serialNumber: '',
   description: '',
-  isArchived: '',
-  favorite: '',
-  wantToSell: '',
-  picture: '',
+  isArchived: false,
+  favorite: false,
+  wantToSell: false,
+  image: '',
 };
 
 function GearForm({ obj }) {
@@ -69,8 +69,8 @@ function GearForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Gear Name"
-          name="gearName"
-          value={formInput.gearName}
+          name="name"
+          value={formInput.name}
           onChange={handleChange}
           required
         />
@@ -80,18 +80,18 @@ function GearForm({ obj }) {
       <FloatingLabel controlId="floatingSelect" label="Type">
         <Form.Select
           aria-label="Type"
-          name="type_id"
+          name="typeId"
           onChange={handleChange}
           className="mb-3"
-          key={formInput.type_id}
-          value={formInput.type_id}
+          key={formInput.typeId}
+          value={formInput.typeId}
           required
         >
           <option value="">What kind of gear is it?</option>
           {
             types.map((type) => (
               <option
-                key={type.firebaseKey}
+                key={type.firbaseKey}
                 value={type.firebaseKey}
               >
                 {type.name}
@@ -203,6 +203,7 @@ GearForm.propTypes = {
     favorite: PropTypes.bool,
     wantToSell: PropTypes.bool,
     firebaseKey: PropTypes.string,
+    image: PropTypes.string,
   }),
 };
 

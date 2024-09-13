@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getTypes = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/types.json?orderBy="uid"&equalTo="${uid}"`, {
+const getTypes = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/types.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const getTypes = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-
+console.log(getTypes());
 // FIXME: CREATE TYPE
 const createType = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types.json`, {
