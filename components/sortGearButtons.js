@@ -2,8 +2,8 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import addGear from '../pages/addGear';
-import { getTypeGear } from '../api/typeData';
-import { getAllGear } from '../api/gearData';
+// import { getTypeGear } from '../api/typeData';
+// import { getAllGear } from '../api/gearData';
 
 function SortButtons() {
   return (
@@ -17,7 +17,14 @@ function SortButtons() {
           margin: '0 auto',
         }}
       >
-        <Button type="button" size="lg" className="copy-btn" onClick={getAllGear}>
+        <div>
+          <Link href="/addGear" passHref>
+            <Button type="button" size="lg" className="copy-btn" onClick={addGear}>
+              Add Gear
+            </Button>
+          </Link>
+        </div>
+        {/* <Button type="button" size="lg" className="copy-btn" onClick={getAllGear}>
           All Current Gear
         </Button>
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
@@ -28,14 +35,7 @@ function SortButtons() {
         </Button>
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
           Other Gear
-        </Button>
-      </div>
-      <div>
-        <Link href="/addGear" passHref>
-          <Button type="button" size="lg" className="copy-btn" onClick={addGear}>
-            Add Gear
-          </Button>
-        </Link>
+        </Button> */}
       </div>
     </div>
   );

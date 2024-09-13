@@ -9,8 +9,6 @@ import { getTypes } from '../../api/typeData';
 import { createGearItem, updateGear } from '../../api/gearData';
 
 const initialState = {
-  gearId: '',
-  ownerId: '',
   name: '',
   typeId: '',
   maker: '',
@@ -23,6 +21,7 @@ const initialState = {
   favorite: false,
   wantToSell: false,
   image: '',
+  quantity: 0,
 };
 
 function GearForm({ obj }) {
@@ -148,6 +147,7 @@ function GearForm({ obj }) {
           required
         />
       </FloatingLabel>
+
       {/* SERIAL # INPUT  */}
       <FloatingLabel controlId="floatingInput3" label="serial number" className="mb-3">
         <Form.Control
@@ -155,6 +155,17 @@ function GearForm({ obj }) {
           placeholder="Enter serial number if you've got it"
           name="serialNumber"
           value={formInput.serialNumber}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput3" label="quantity" className="mb-3">
+        <Form.Control
+          type="number"
+          placeholder="quantity"
+          name="quantity"
+          value={formInput.quantity}
           onChange={handleChange}
           required
         />
@@ -183,7 +194,34 @@ function GearForm({ obj }) {
           required
         />
       </FloatingLabel>
-
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="favorite"
+        name="favorite"
+        label="Favorite?"
+        checked={formInput.favorite}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            favorite: e.target.checked,
+          }));
+        }}
+      />
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="wantToSell"
+        name="wantToSell"
+        label="want to sell?"
+        checked={formInput.wantToSell}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            wantToSell: e.target.checked,
+          }));
+        }}
+      />
       {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Gear</Button>
     </Form>
@@ -192,7 +230,6 @@ function GearForm({ obj }) {
 
 GearForm.propTypes = {
   obj: PropTypes.shape({
-    ownerId: PropTypes.string,
     name: PropTypes.string,
     maker: PropTypes.string,
     acquiredOn: PropTypes.string,
@@ -204,6 +241,7 @@ GearForm.propTypes = {
     wantToSell: PropTypes.bool,
     firebaseKey: PropTypes.string,
     image: PropTypes.string,
+    quantity: PropTypes.number,
   }),
 };
 

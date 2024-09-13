@@ -26,12 +26,12 @@ export default function AllGear() {
         <TypePickerDropdown />
       </div>
       <div>
+        <div className="gear-cards-container">
+          {gear.map((gearItem) => (
+            <GearCard key={gearItem.firebaseKey} gearObj={gearItem} onUpdate={getAllTheGear} />
+          ))}
+        </div>
         <SortButtons />
-      </div>
-      <div>
-        {gear.map((gearItem) => (
-          <GearCard key={gearItem.firebaseKey} gearObj={gearItem} onUpdate={getAllTheGear} />
-        ))}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const initialState = {
 };
 
 // eslint-disable-next-line react/prop-types
-function TypePickerDropdown({ obj, setValue }) {
+function TypePickerDropdown({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [types, setTypes] = useState([]);
   const router = useRouter();
@@ -29,7 +29,6 @@ function TypePickerDropdown({ obj, setValue }) {
       ...prevState,
       [name]: value,
     }));
-    setValue(value);
   };
 
   const handleSubmit = (e) => {
@@ -45,10 +44,10 @@ function TypePickerDropdown({ obj, setValue }) {
         <FloatingLabel controlId="floatingSelect" label="Type">
           <Form.Select
             aria-label="Type"
-            name="id"
+            name="typeId"
             onChange={handleChange}
             className="mb-3"
-            // key={formInput.id}
+            key={formInput.id}
             value={formInput.id}
             required
           >

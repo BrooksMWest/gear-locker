@@ -19,7 +19,6 @@ const getTypes = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-console.log(getTypes());
 // FIXME: CREATE TYPE
 const createType = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types.json`, {

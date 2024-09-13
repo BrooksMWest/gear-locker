@@ -15,13 +15,16 @@ function GearCard({ gearObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={gearObj?.image || 'defaultImageUrl'} alt={gearObj?.name || 'No name'} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{gearObj.name}</Card.Title>
+        <Card.Img variant="top" src={gearObj?.image || 'defaultImageUrl'} alt={gearObj?.name || 'No name'} style={{ height: '400px', width: '100%', objectFit: 'contain' }} />
         {/* DYNAMIC LINK TO VIEW THE GEAR DETAILS  */}
         <Link href={`/gear/${gearObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="primary" className="m-2">View Details</Button>
         </Link>
+        {/* <Button variant="primary" onClick={archiveThisGear} className="m-2">
+          Archive
+        </Button> */}
         {/* DYNAMIC LINK TO EDIT THE GEAR DETAILS  */}
         <Link href={`/gear/edit/${gearObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
@@ -44,6 +47,7 @@ GearCard.propTypes = {
     description: PropTypes.string,
     image: PropTypes.string,
     firebaseKey: PropTypes.string,
+    favorite: PropTypes.bool,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
