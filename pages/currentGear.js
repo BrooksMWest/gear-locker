@@ -30,7 +30,7 @@ export default function AllGear() {
       </div>
       <div>
         {gear.map((gearItem) => (
-          <GearCard key={gear.id} gearObj={gearItem} onUpdate={getAllTheGear} />
+          <GearCard key={gearItem.firebaseKey} gearObj={gearItem} onUpdate={getAllTheGear} />
         ))}
       </div>
     </div>

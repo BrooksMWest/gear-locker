@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import addGear from '../pages/addGear';
 import { getTypeGear } from '../api/typeData';
+import { getAllGear } from '../api/gearData';
 
 function SortButtons() {
   return (
@@ -16,7 +17,7 @@ function SortButtons() {
           margin: '0 auto',
         }}
       >
-        <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
+        <Button type="button" size="lg" className="copy-btn" onClick={getAllGear}>
           All Current Gear
         </Button>
         <Button type="button" size="lg" className="copy-btn" onClick={getTypeGear}>
