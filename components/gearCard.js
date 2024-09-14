@@ -16,6 +16,7 @@ function GearCard({ gearObj, onUpdate }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
+        <Card.Title>{gearObj.maker}</Card.Title>
         <Card.Title>{gearObj.name}</Card.Title>
         <Card.Img variant="top" src={gearObj?.image || 'defaultImageUrl'} alt={gearObj?.name || 'No name'} style={{ height: '400px', width: '100%', objectFit: 'contain' }} />
         {/* DYNAMIC LINK TO VIEW THE GEAR DETAILS  */}
@@ -40,6 +41,7 @@ function GearCard({ gearObj, onUpdate }) {
 GearCard.propTypes = {
   gearObj: PropTypes.shape({
     name: PropTypes.string,
+    maker: PropTypes.string,
     acquiredOn: PropTypes.string,
     acquiredFrom: PropTypes.string,
     condition: PropTypes.string,

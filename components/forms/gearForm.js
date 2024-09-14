@@ -222,6 +222,21 @@ function GearForm({ obj }) {
           }));
         }}
       />
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="isArchived"
+        name="isArchived"
+        label="Send this item
+        to the archive?"
+        checked={formInput.isArchived}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            isArchived: e.target.checked,
+          }));
+        }}
+      />
       {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Gear</Button>
     </Form>

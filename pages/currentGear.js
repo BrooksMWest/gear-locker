@@ -22,9 +22,10 @@ export default function AllGear() {
     getAllTheGear();
   }, [getAllTheGear]);
 
-  const filteredGear = selectedTypeId
-    ? gear.filter((gearItem) => gearItem.typeId === selectedTypeId)
-    : gear;
+  const filteredGear = selectedTypeId === 'all' || selectedTypeId === ''
+    ? gear
+    : gear.filter((gearItem) => gearItem.typeId === selectedTypeId);
+
   return (
     <div>
       <h1>Current Gear

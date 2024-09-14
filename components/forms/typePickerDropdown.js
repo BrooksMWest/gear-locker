@@ -44,6 +44,7 @@ function TypePickerDropdown({ obj, onTypeChange }) {
             required
           >
             <option value="">What Gear Would you like to see?</option>
+            <option value="all">All Types</option>
             {
     types.map((type) => (
       <option
