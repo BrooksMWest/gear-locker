@@ -8,10 +8,10 @@ export default function ViewGearItem() {
   const [gearDetails, setGearDetails] = useState({});
   const router = useRouter();
 
-  // TODO: grab firebaseKey from url
-  const { firebaseKey } = router.query;
+  // grab firebaseKey from url
+  const { firebaseKey } = router.query; // router.query comes from useRouter in nextJs this extracts the firebaseKey from the router.query object and assigns it to the firebaseKey variable
 
-  // TODO: make call to API layer to get the data
+  // make call to API layer to get the data
   useEffect(() => {
     viewGearDetails(firebaseKey).then(setGearDetails);
   }, [firebaseKey]);

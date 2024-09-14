@@ -21,7 +21,7 @@ const initialState = {
   favorite: false,
   wantToSell: false,
   image: '',
-  quantity: 0,
+  quantity: 1,
 };
 
 function GearForm({ obj }) {
