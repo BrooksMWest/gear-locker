@@ -95,7 +95,7 @@ const gearIsFavorite = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-
+// make api calls for archived gear - getAllArchivedGear, deleteArchivedGearItem, createArchivedGearItem, getSingleArchivedGearItem, updateArchivedGear, get ArchivedgearByType
 export {
   getAllGear,
   createGearItem,

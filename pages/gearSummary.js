@@ -34,12 +34,12 @@ export default function GearSummary() {
         setNumberOfAudioGear(audioGear.length);
         setNumberOfOtherGear(otherGear.length);
 
-        // Sort by acquisition date to find the most recent and the oldest
+        // Sort by acquisition date to find the most recent and the oldest - .sort() sorts the gear array (a, b) are the items that will be compared against eachother this subtracts one acquiredOn date from another. if the result is negative, a comes first, if it's positive, be comes before a.
         const sortedGear = gear.sort((a, b) => new Date(a.acquiredOn) - new Date(b.acquiredOn));
 
         if (sortedGear.length > 0) { // if there is at least one gear item, keep going to the next function
-          setMostRecentlyAcquired(sortedGear[sortedGear.length - 1].name);
-          setFirstAcquired(sortedGear[0].name);
+          setMostRecentlyAcquired(sortedGear[sortedGear.length - 1].name);// sets the state with the sortedGear with the piece of gear last in the index -1 (since arrays are zero indexed) .name accesses the name property of the sorted gear
+          setFirstAcquired(sortedGear[0].name);// sets the state with the value of sortedGear at index 0 and accesses the name property of the gear - it sets the firstAcquired state to the name of the earliest acquired gear item ont he sorted array.
         }
       }
     });
