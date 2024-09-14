@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { getAllGear } from '../api/gearData';
 import { useAuth } from '../utils/context/authContext';
 import { getTypes } from '../api/typeData';
-
+// this function renders the gear summary for the user
 export default function GearSummary() {
+  // the next bunch are where we create the variables and sets the intitialized values in state The setter function updates the values
   const [numberOfInstruments, setNumberOfInstruments] = useState(0);
   const [numberOfAudioGear, setNumberOfAudioGear] = useState(0);
   const [numberOfOtherGear, setNumberOfOtherGear] = useState(0);
   const [mostRecentlyAcquired, setMostRecentlyAcquired] = useState('');
   const [firstAcquired, setFirstAcquired] = useState('');
-  const [gearTypes, setGearTypes] = useState({});
+  const [gearTypes, setGearTypes] = useState({});// also intitializes the empty object where the mapped gear types will be stored.
   const { user } = useAuth();
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function GearSummary() {
         // Sort by acquisition date to find the most recent and the oldest
         const sortedGear = gear.sort((a, b) => new Date(a.acquiredOn) - new Date(b.acquiredOn));
 
-        if (sortedGear.length > 0) {
+        if (sortedGear.length > 0) { // if there is at least one gear item, keep going to the next function
           setMostRecentlyAcquired(sortedGear[sortedGear.length - 1].name);
           setFirstAcquired(sortedGear[0].name);
         }
