@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
 import { PropTypes } from 'prop-types';
-import { getTypes } from '../../api/typeData';
 import { useAuth } from '../../utils/context/authContext';
+import { getTypes } from '../../api/typeData';
 
 const initialState = {
   id: '',
@@ -10,7 +10,7 @@ const initialState = {
 };
 
 // eslint-disable-next-line react/prop-types
-function TypePickerDropdown({ obj, onTypeChange }) {
+function ArchivedTypePickerDropdown({ obj, onTypeChange }) {
   const [formInput, setFormInput] = useState(initialState);
   const [types, setTypes] = useState([]);
   const { user } = useAuth();
@@ -44,7 +44,7 @@ function TypePickerDropdown({ obj, onTypeChange }) {
             required
           >
             <option value="">What Gear Would you like to see?</option>
-            <option value="all">All Current Gear</option>
+            <option value="all">All Archived Gear</option>
             {
     types.map((type) => (
       <option
@@ -62,15 +62,15 @@ function TypePickerDropdown({ obj, onTypeChange }) {
   );
 }
 
-TypePickerDropdown.propTypes = {
+ArchivedTypePickerDropdown.propTypes = {
   obj: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
   }),
 };
 
-TypePickerDropdown.defaultProps = {
+ArchivedTypePickerDropdown.defaultProps = {
   obj: initialState,
 };
 
-export default TypePickerDropdown;
+export default ArchivedTypePickerDropdown;
