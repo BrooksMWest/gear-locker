@@ -19,7 +19,7 @@ const getTypes = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-// FIXME: CREATE TYPE
+// CREATE TYPE - NOT USING THIS YET - STRETCH GOAL!!!
 const createType = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types.json`, {
     method: 'POST',
@@ -33,7 +33,7 @@ const createType = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: GET SINGLE AUTHOR
+// GET SINGLE TYPE
 const getSingleType = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types/${firebaseKey}.json`, {
     method: 'GET',
@@ -46,7 +46,7 @@ const getSingleType = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: DELETE TYPES
+// DELETE TYPES - NOT USING THIS YET - STRETCH GOAL!!!!
 const deleteSingleType = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -59,7 +59,7 @@ const deleteSingleType = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: UPDATE TYPE
+// UPDATE TYPE - NOT USING THIS YET - STRETCH GOAL!!!!!
 const updateType = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -73,7 +73,7 @@ const updateType = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: GET A SINGLE TYPE'S GEAR
+// GET A SINGLE TYPE'S GEAR
 const getTypeGear = (firebaseKey) => new Promise((resolve, reject) => {
   // this needs fixing
   fetch(`${endpoint}/gear.json?orderBy="typeId"&equalTo="${firebaseKey}"`, {
@@ -86,6 +86,7 @@ const getTypeGear = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
+// not using this yet - got from simply books but won't need it until i need to show gear favorites.
 const favoriteTypes = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
