@@ -5,7 +5,7 @@ import { getTypes } from '../../api/typeData';
 import { useAuth } from '../../utils/context/authContext';
 
 const initialState = { // object that holds default values for the form - set to two empty strings
-  id: '',
+  typeId: '',
   name: '',
 };
 
@@ -39,8 +39,8 @@ function TypePickerDropdown({ obj, onTypeChange }) { // functional component tha
             name="typeId"
             onChange={handleChange}
             className="mb-3"
-            key={formInput.id}
-            value={formInput.id}
+            key={formInput.typeId}
+            value={formInput.typeId}
             required
           >
             <option value="">What Gear Would you like to see?</option>
@@ -48,8 +48,8 @@ function TypePickerDropdown({ obj, onTypeChange }) { // functional component tha
             {
     types.map((type) => (// maps over the types array and creates an option for each type with a key and a value. the name is what shows in the ui
       <option
-        key={type.id}
-        value={type.id}
+        key={type.firebaseKey}
+        value={type.firebaseKey}
       >
         {type.name}
       </option>
@@ -64,7 +64,7 @@ function TypePickerDropdown({ obj, onTypeChange }) { // functional component tha
 // defines the proptypes for the component so the dropdown knows what to expect when in gets obj
 TypePickerDropdown.propTypes = {
   obj: PropTypes.shape({
-    id: PropTypes.string,
+    typeId: PropTypes.string,
     name: PropTypes.string,
   }),
 };

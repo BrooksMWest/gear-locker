@@ -26,7 +26,7 @@ export default function ViewGearItem() {
           {gearDetails.name}
         </h1>
         <h3>Quantity: {gearDetails.quantity}</h3>
-        <h3>Type of Gear: {gearDetails.typeId}</h3>
+        <h3>Type of Gear: {gearDetails.typeName}</h3>
         <h3> Manufacturer: {gearDetails.maker}</h3>
         <h3>Date Acquired: {gearDetails.acquiredOn}</h3>
         <h3>Acquired From: {gearDetails.acquiredFrom}</h3>
