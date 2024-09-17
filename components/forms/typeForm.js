@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createType, updateType } from '../../api/typeData';
 
+// NOT CURRENTLY USING ANY OF THIS!!! IT WILL BE USED AS A STRETCH GOAL FOR WHEN USERS CAN ADD THEIR OWN TYPES!!!
 const initialState = {
   name: '',
 };
@@ -31,7 +32,7 @@ function TypeForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateType(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
+      updateType(formInput).then(() => router.push(`/type/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createType(payload).then(({ name }) => {
@@ -45,62 +46,22 @@ function TypeForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Author</h2>
+      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Type</h2>
 
-      {/* EMAIL INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="Author Email" className="mb-3">
+      {/* NEW TYPE INPUT  */}
+      <FloatingLabel controlId="floatingInput1" label="Gear Type" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Enter the author's email"
-          name="email"
-          value={formInput.email}
+          placeholder="What type classification would you like to add to your locker?"
+          name="text"
+          value={formInput.type}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
-
-      {/* FIRST NAME INPUT  */}
-      <FloatingLabel controlId="floatingInput3" label="First Name" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="First name"
-          name="first_name"
-          value={formInput.first_name}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* LAST NAME INPUT  */}
-      <FloatingLabel controlId="floatingInput3" label="Last Name" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="last name"
-          name="last_name"
-          value={formInput.last_name}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
-        id="favorite"
-        name="favorite"
-        label="Favorite?"
-        checked={formInput.favorite}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            sale: e.target.checked,
-          }));
-        }}
-      />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Author</Button>
+      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Type</Button>
     </Form>
   );
 }
