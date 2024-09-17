@@ -12,14 +12,14 @@ const getTypes = () => new Promise((resolve, reject) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        resolve(Object.values(data));
+        resolve(Object.values(data));// if data exists give the Object.values - ObjectConstructor is built into javascript and in this case is used to extract the values from the data object and put them into an array
       } else {
-        resolve([]);
+        resolve([]);// if no data comes back resolve with this empty array
       }
     })
     .catch(reject);
 });
-// CREATE TYPE - NOT USING THIS YET - STRETCH GOAL!!!
+// CREATE TYPE - NOT USING THIS YET - NEEDED FOR STRETCH GOAL!!!
 const createType = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/types.json`, {
     method: 'POST',

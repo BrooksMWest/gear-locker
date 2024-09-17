@@ -28,7 +28,7 @@ const deleteGearItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: GET SINGLE GEAR ITEM
+// GET SINGLE GEAR ITEM
 const getSingleGearItem = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear/${firebaseKey}.json`, {
     method: 'GET',
@@ -41,7 +41,7 @@ const getSingleGearItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: CREATE GEAR ITEM
+// CREATE GEAR ITEM
 const createGearItem = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear.json`, {
     method: 'POST',
@@ -55,7 +55,7 @@ const createGearItem = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: UPDATE GEAR
+// UPDATE GEAR
 const updateGear = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -80,7 +80,7 @@ const getGearByType = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
-
+// NOT USING YET!!! STRETCH GOAL!!!!!
 const gearIsFavorite = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
