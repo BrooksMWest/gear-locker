@@ -7,7 +7,7 @@ const viewGearDetails = (gearFirebaseKey) => new Promise((resolve, reject) => { 
     .then((gearObject) => {
       getSingleType(gearObject.typeId)// gets typeId when the gerObject is returned
         .then((typeObject) => {
-          resolve({ typeObject, ...gearObject });// resolves the promise by combining the typeObject with the gearObject. ... is a spread operator - allows us to expand the elements of anything iterable. other things it can do: object merging, function arguments, array concentration
+          resolve({ ...gearObject, typeName: typeObject.name });// resolves the promise by combining the typeObject with the gearObject. ... is a spread operator - allows us to expand the elements of anything iterable. other things it can do: object merging, function arguments, array concentration
         });
     }).catch((error) => reject(error));// this happens if the fetch doesn't work
 });

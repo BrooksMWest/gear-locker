@@ -90,7 +90,7 @@ function GearForm({ obj }) {
           {
             types.map((type) => (
               <option
-                key={type.firbaseKey}
+                key={type.firebaseKey}
                 value={type.firebaseKey}
               >
                 {type.name}
