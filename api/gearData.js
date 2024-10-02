@@ -80,6 +80,38 @@ const getGearByType = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
+
+// API CALL FOR ALL ARCHIVED GEAR
+const getArchivedGear = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"&orderBy="isArchived"&equalTo=true`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const archivedGear = Object.values(data).filter((item) => item.isArchived);
+      resolve(archivedGear);
+    })
+    .catch(reject);
+});
+// API CALL FOR GETTING ALL CURRENT GEAR (NOT ARCHIVED GEAR)
+const getCurrentGear = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"&orderBy="isArchived"&equalTo=false`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const currentGear = Object.values(data).filter((item) => !item.isArchived);
+      resolve(currentGear);
+    })
+    .catch(reject);
+});
+
 // NOT USING YET!!! STRETCH GOAL!!!!!
 const gearIsFavorite = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear.json?orderBy="uid"&equalTo="${uid}"`, {
@@ -104,4 +136,6 @@ export {
   getSingleGearItem,
   updateGear,
   getGearByType,
+  getArchivedGear,
+  getCurrentGear,
 };
