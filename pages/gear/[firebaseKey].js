@@ -33,6 +33,8 @@ export default function ViewGearItem() {
         <h3>Condition: {gearDetails.condition}</h3>
         <h3>Serial Number: {gearDetails.serialNumber}</h3>
         <h3>Description: {gearDetails.description}</h3>
+        <h3>Favorite?: {gearDetails.favorite ? 'Yes ❤️' : 'No'} </h3>
+        <h3>Want to Sell?: {gearDetails.wantToSell ? 'Yes 💲' : 'No'}</h3>
         <p />
       </div>
       <Link href={`/gear/edit/${gearDetails.firebaseKey}`} passHref>
