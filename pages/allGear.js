@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import SortButtons from '../components/sortGearButtons';
-import { getCurrentGear } from '../api/gearData';
+import { getAllGear } from '../api/gearData';
 import { useAuth } from '../utils/context/authContext';
 import GearCard from '../components/gearCard';
 import TypePickerDropdown from '../components/forms/typePickerDropdown';
 
-export default function CurrentGear() {
+export default function AllGear() {
   // SET STATE FOR gear
   const [gear, setGear] = useState([]);
   // SETS THE STATE FOR SELECTED TYPE
@@ -13,14 +13,14 @@ export default function CurrentGear() {
 
   // GET USER ID USING USEAUTH HOOK
   const { user } = useAuth();
-  const getAllTheCurrentGear = useCallback(() => {
-    getCurrentGear(user.uid).then(setGear);
+  const getAllTheGear = useCallback(() => {
+    getAllGear(user.uid).then(setGear);
   }, [user.uid, setGear]);
 
   // CREATE A FUNCTION THAT MAKES AN API CALL TO GET ALL THE GEAR
   useEffect(() => {
-    getAllTheCurrentGear();
-  }, [getAllTheCurrentGear]);
+    getAllTheGear();
+  }, [getAllTheGear]);
 
   const filteredGear = selectedTypeId === 'all' || selectedTypeId === ''
     ? gear
@@ -28,7 +28,7 @@ export default function CurrentGear() {
 
   return (
     <div>
-      <h1>Current Gear
+      <h1>All Gear
       </h1>
       <div>
         <TypePickerDropdown onTypeChange={setSelectedTypeId} />
@@ -39,7 +39,7 @@ export default function CurrentGear() {
             <GearCard
               key={gearItem.firebaseKey}
               gearObj={gearItem}
-              onUpdate={getAllTheCurrentGear}
+              onUpdate={getAllTheGear}
             />
           ))}
         </div>

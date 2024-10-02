@@ -20,8 +20,11 @@ export default function NavBar() {
             <Link passHref href="/">
               <Nav.Link>Home</Nav.Link>
             </Link>
+            <Link passHref href="/allGear">
+              <Nav.Link>All Gear</Nav.Link>
+            </Link>
             <Link passHref href="/currentGear">
-              <Nav.Link>My Current Gear</Nav.Link>
+              <Nav.Link>Current Gear</Nav.Link>
             </Link>
             <Link passHref href="/archivedGear">
               <Nav.Link>Archived Gear</Nav.Link>

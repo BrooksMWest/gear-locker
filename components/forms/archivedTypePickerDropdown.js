@@ -39,8 +39,8 @@ function ArchivedTypePickerDropdown({ obj, onTypeChange }) { // this functional 
             name="typeId"
             onChange={handleChange}
             className="mb-3"
-            key={formInput.id}
-            value={formInput.id}
+            key={formInput.typeId}
+            value={formInput.typeId}
             required
           >
             <option value="">What Gear Would you like to see?</option>
@@ -48,8 +48,8 @@ function ArchivedTypePickerDropdown({ obj, onTypeChange }) { // this functional 
             {
     types.map((type) => (
       <option
-        key={type.id}
-        value={type.id}
+        key={type.firebaseKey}
+        value={type.firebaseKey}
       >
         {type.name}
       </option>
@@ -64,7 +64,7 @@ function ArchivedTypePickerDropdown({ obj, onTypeChange }) { // this functional 
 // definition of the prop types we want to be passing as an obj
 ArchivedTypePickerDropdown.propTypes = {
   obj: PropTypes.shape({
-    id: PropTypes.string,
+    typeId: PropTypes.string,
     name: PropTypes.string,
   }),
 };
