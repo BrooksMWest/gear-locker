@@ -33,6 +33,8 @@ function GearCard({ gearObj, onUpdate }) {
         <Button variant="danger" onClick={deleteThisGear} className="m-2">
           DELETE
         </Button>
+        {gearObj.favorite && <span style={{ marginLeft: '10px' }}>❤️</span>}
+        {gearObj.wantToSell && <span style={{ marginLeft: '10px' }}>💲</span>}
       </Card.Body>
     </Card>
   );
@@ -50,6 +52,7 @@ GearCard.propTypes = {
     image: PropTypes.string,
     firebaseKey: PropTypes.string,
     favorite: PropTypes.bool,
+    wantToSell: PropTypes.bool,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
