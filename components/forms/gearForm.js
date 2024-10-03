@@ -53,7 +53,7 @@ function GearForm({ obj }) {
       createGearItem(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateGear(patchPayload).then(() => {
-          router.push('/currentGea');
+          router.push('/currentGear');
         });
       });
     }

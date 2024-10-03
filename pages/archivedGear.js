@@ -28,10 +28,11 @@ export default function ArchivedGear() {
 
   return (
     <div>
-      <h1>Archived Gear
+      <h1 className="page-header-text">Archived Gear
       </h1>
       <div>
         <ArchivedTypePickerDropdown onTypeChange={setSelectedTypeId} />
+        <SortButtons />
       </div>
       <div>
         <div className="gear-cards-container">
@@ -43,7 +44,6 @@ export default function ArchivedGear() {
             />
           ))}
         </div>
-        <SortButtons />
       </div>
     </div>
   );

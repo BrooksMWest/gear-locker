@@ -28,10 +28,11 @@ export default function CurrentGear() {
 
   return (
     <div>
-      <h1>Current Gear
+      <h1 className="page-header-text">Current Gear
       </h1>
       <div>
         <TypePickerDropdown onTypeChange={setSelectedTypeId} />
+        <SortButtons />
       </div>
       <div>
         <div className="gear-cards-container">
@@ -43,7 +44,6 @@ export default function CurrentGear() {
             />
           ))}
         </div>
-        <SortButtons />
       </div>
     </div>
   );

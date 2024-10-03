@@ -10,17 +10,16 @@ function Home() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
       style={{
-        height: '90vh',
-        padding: '30px',
+        padding: '20px',
         maxWidth: '400px',
         margin: '0 auto',
       }}
     >
       <div>
+        <h2>Hello {user.displayName}!</h2>
+        <h1>Welcome to Gear Locker</h1>
         <WelcomeButtons />
       </div>
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
       <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
         Sign Out
       </Button>

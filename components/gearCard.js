@@ -14,7 +14,12 @@ function GearCard({ gearObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card style={{
+      width: '18rem',
+      margin: '10px',
+      backgroundColor: gearObj.isArchived ? 'pink' : 'lightgreen',
+    }}
+    >
       <Card.Body>
         <Card.Title>{gearObj.maker}</Card.Title>
         <Card.Title>{gearObj.name}</Card.Title>
@@ -53,6 +58,7 @@ GearCard.propTypes = {
     firebaseKey: PropTypes.string,
     favorite: PropTypes.bool,
     wantToSell: PropTypes.bool,
+    isArchived: PropTypes.bool,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
