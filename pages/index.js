@@ -10,6 +10,7 @@ function Home() {
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
       style={{
+        color: 'white',
         padding: '20px',
         maxWidth: '400px',
         margin: '0 auto',

@@ -228,7 +228,7 @@ function GearForm({ obj }) {
         id="isArchived"
         name="isArchived"
         label="Send this item
-        to the archive?"
+        to the archive? Archived items will show as pink. Current Items will show as green."
         checked={formInput.isArchived}
         onChange={(e) => {
           setFormInput((prevState) => ({
@@ -238,7 +238,7 @@ function GearForm({ obj }) {
         }}
       />
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Gear</Button>
+      <Button type="submit" className="mb-3">{obj.firebaseKey ? 'Update' : 'Create'} Gear</Button>
     </Form>
   );
 }

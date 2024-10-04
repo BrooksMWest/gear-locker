@@ -3,8 +3,8 @@ import React from 'react';
 // this function renders the gear summary for the user
 export default function GearSummary() {
   return (
-    <div>
-      <h1 className="page-header-text">Gear Summary Page</h1>
+    <div className="page-header-text">
+      <h1>Gear Summary Page</h1>
       <h2>Gear Summary functionality coming soon!</h2>
       <div>
         <h1>Current Gear</h1>

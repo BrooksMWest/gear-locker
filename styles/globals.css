@@ -18,7 +18,13 @@ a {
 }
 
 body {
-  background-color: #1b7e89;
+  background-image: url('/images/gears.jpg');
+  background-size: cover;
+  background-position: center center; 
+  background-repeat: repeat;
+  height: 100vh;
+  margin: 0; 
+  padding: 0;
 }
 .gear-cards-container {
   display: flex;
@@ -33,4 +39,9 @@ body {
 }
 .page-header-text {
   color: white;
+}
+.edit-button {
+  margin: 20px;
+  bottom: 20px;
+  padding: 20px;
 }

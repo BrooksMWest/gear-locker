@@ -20,6 +20,11 @@ export default function ViewGearItem() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
         <Image src={gearDetails.image} alt={gearDetails.name} style={{ width: '600px' }} />
+        <div>
+          <Link href={`/gear/edit/${gearDetails.firebaseKey}`} passHref>
+            <Button variant="info" className="edit-button">EDIT</Button>
+          </Link>
+        </div>
       </div>
       <div className="text-white ms-5 details">
         <h1>
@@ -37,9 +42,6 @@ export default function ViewGearItem() {
         <h3>Want to Sell?: {gearDetails.wantToSell ? 'Yes 💲' : 'No'}</h3>
         <p />
       </div>
-      <Link href={`/gear/edit/${gearDetails.firebaseKey}`} passHref>
-        <Button variant="info" className="m-2">EDIT</Button>
-      </Link>
     </div>
   );
 }
