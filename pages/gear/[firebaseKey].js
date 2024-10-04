@@ -40,6 +40,7 @@ export default function ViewGearItem() {
         <h3>Description: {gearDetails.description}</h3>
         <h3>Favorite?: {gearDetails.favorite ? 'Yes ❤️' : 'No'} </h3>
         <h3>Want to Sell?: {gearDetails.wantToSell ? 'Yes 💲' : 'No'}</h3>
+        <h3>Archived? {gearDetails.isArchived ? 'Yes' : 'No'}</h3>
         <p />
       </div>
     </div>
