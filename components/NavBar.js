@@ -32,6 +32,8 @@ export default function NavBar() {
             <Link passHref href="/gearSummary">
               <Nav.Link>Gear Summary</Nav.Link>
             </Link>
+          </Nav>
+          <Nav className="ms-auto">
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
