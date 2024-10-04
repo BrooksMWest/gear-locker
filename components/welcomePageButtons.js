@@ -29,7 +29,7 @@ function WelcomeButtons() {
       </Link>
       <Link href="/addGear" passHref>
         <Button type="button" size="lg" className="copy-btn" style={{ marginBottom: '15px' }}>
-          Add gear to the locker
+          Add gear to your locker
         </Button>
       </Link>
     </div>
