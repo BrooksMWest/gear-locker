@@ -28,14 +28,13 @@ body {
 }
 .gear-cards-container {
   display: flex;
-  flex-wrap: wrap;         /* Ensures that cards wrap to the next row */
-  justify-content: space-between; /* Adds spacing between the cards */
+  flex-wrap: wrap;        
+  justify-content: flex-start; 
 }
-
 .gear-cards-container .GearCard {
-  flex: 1 1 calc(25% - 20px);  /* Four items per row, adjust -20px for margin */
-  margin: 10px;                /* Adds spacing around each card */
-  box-sizing: border-box;       /* Ensures padding doesn't affect width */
+  flex: 1 1 calc(25% - 20px); 
+  margin: 10px;                
+  box-sizing: border-box;      
 }
 .page-header-text {
   color: white;

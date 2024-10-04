@@ -16,7 +16,7 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      <div>
+      <div className="page-header-text">
         <h2>Hello {user.displayName}!</h2>
         <h1>Welcome to Gear Locker</h1>
         <WelcomeButtons />
