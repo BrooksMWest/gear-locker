@@ -43,7 +43,7 @@ function ArchivedTypePickerDropdown({ obj, onTypeChange }) { // this functional 
             value={formInput.typeId}
             required
           >
-            <option value="all">everything</option>
+            <option value="all">everythinggit push </option>
             {
     types.map((type) => (
       <option

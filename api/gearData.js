@@ -15,7 +15,7 @@ const getAllGear = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: DELETE GEAR
+// DELETE GEAR
 const deleteGearItem = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/gear/${firebaseKey}.json`, {
     method: 'DELETE',
