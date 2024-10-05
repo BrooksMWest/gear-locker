@@ -18,7 +18,7 @@ function Home() {
     >
       <div className="page-header-text">
         <h2>Hello {user.displayName}!</h2>
-        <h1>Welcome to Gear Locker</h1>
+        <h1>Welcome to the Gear Locker</h1>
         <WelcomeButtons />
       </div>
       <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>

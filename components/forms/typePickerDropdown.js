@@ -33,7 +33,7 @@ function TypePickerDropdown({ obj, onTypeChange }) { // functional component tha
   return (
     <Form>
       <div>
-        <FloatingLabel controlId="floatingSelect" label="Type">
+        <FloatingLabel controlId="floatingSelect" label="What type of gear would you like to see?">
           <Form.Select
             aria-label="Type"
             name="typeId"
@@ -43,8 +43,7 @@ function TypePickerDropdown({ obj, onTypeChange }) { // functional component tha
             value={formInput.typeId}
             required
           >
-            <option value="">What Gear Would you like to see?</option>
-            <option value="all">All Current Gear</option>
+            <option value="all">everything</option>
             {
     types.map((type) => (// maps over the types array and creates an option for each type with a key and a value. the name is what shows in the ui
       <option
