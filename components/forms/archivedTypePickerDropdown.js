@@ -33,7 +33,7 @@ function ArchivedTypePickerDropdown({ obj, onTypeChange }) { // this functional 
   return (
     <Form>
       <div>
-        <FloatingLabel controlId="floatingSelect" label="Type">
+        <FloatingLabel controlId="floatingSelect" label="What type of gear would you like to see?">
           <Form.Select
             aria-label="Type"
             name="typeId"
@@ -43,8 +43,7 @@ function ArchivedTypePickerDropdown({ obj, onTypeChange }) { // this functional 
             value={formInput.typeId}
             required
           >
-            <option value="">What Gear Would you like to see?</option>
-            <option value="all">All Archived Gear</option>
+            <option value="all">everythinggit push </option>
             {
     types.map((type) => (
       <option
